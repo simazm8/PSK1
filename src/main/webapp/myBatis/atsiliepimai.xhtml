@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:head/>
+<h:body>
+    <h1>MyBatis implementacija</h1>
+    <h2>Atsiliepimai apie zaidima #{atsiliepimaiForZaidimasMyBatis.zaidimas.pavadinimas}</h2>
+    <ol>
+        <ui:repeat value="#{atsiliepimaiForZaidimasMyBatis.zaidimas.atsiliepimai}" var="atsiliepimas">
+            <li>
+                #{atsiliepimas.pavadinimas}
+            </li>
+        </ui:repeat>
+    </ol>
+    <br/>
+    <h:link outcome="/myBatis/kategorijos" value="Grįžti į kategorijų puslapį"/>
+</h:body>
+</html>

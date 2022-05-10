@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:head/>
+<h:body>
+    <h2>Redaguokite #{updateZaidimas.zaidimas.pavadinimas} informaciją</h2>
+    <h:form>
+        <h:outputText value="Naujas pavadinimas: "/>
+        <br/>
+        <h:inputText a:placeholder="Įveskitę naują pavadinimą" value="#{updateZaidimas.zaidimas.pavadinimas}" required="true" />
+        <br/>
+        <h:outputText value="Nauja kaina: "/>
+        <br/>
+        <h:inputText a:placeholder="Įveskitę naują kainą" value="#{updateZaidimas.zaidimas.kaina}" required="true" />
+        <br/>
+        <h:inputText a:placeholder="Įveskite serijinį numerį" value="#{updateZaidimas.zaidimas.serijinisNr}" required="true" />
+        <br/>
+        <h:commandButton value="atnaujinti" action="#{updateZaidimas.updateZaidimasName()}">
+            <f:param name="zaidimoId" value="#{updateZaidimas.zaidimas.id}" />
+        </h:commandButton>
+        <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+    </h:form>
+    <h:form>
+        <h:inputText a:placeholder="Atsiliepimas" value="#{atsiliepimaiForZaidimas.atsiliepimasToCreate.aprasymas}" required="true" />
+        <h:commandButton value="Pridėti komentara"
+                         actionListener="#{atsiliepimaiForZaidimas.addAtsiliepimas(atsiliepimaiForZaidimas.atsiliepimasToCreate.aprasymas)}">
+            <f:param name="zaidimoId" value="#{atsiliepimaiForZaidimas.zaidimas.id}"/>
+
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="index" value="Grįžti į pagrindinį puslapį"/>
+</h:body>
+</html>

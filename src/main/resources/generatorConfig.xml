@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="ZaidimaiDB" targetRuntime="MyBatis3Simple">
+        <jdbcConnection driverClass="org.h2.Driver"
+                        connectionURL="jdbc:h2:~/h2database/ZaidimaiDB;AUTO_SERVER=TRUE"
+                        userId="tapli"
+                        password="tapli">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.tapli.zaidimuparduotuve.mybatis.model" targetProject="MAVEN" />
+
+        <sqlMapGenerator targetPackage="com.tapli.zaidimuparduotuve.mybatis.xml" targetProject="MAVEN" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.tapli.zaidimuparduotuve.mybatis.dao" targetProject="MAVEN" />
+
+
+        <table schema="public" tableName="kategorija">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="zaidimas">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+            <ignoreColumn column="opt_lock_version" />
+        </table>
+        <table schema="public" tableName="atsiliepimas">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="zaidimo_atsiliepimas"></table>
+    </context>
+</generatorConfiguration>
